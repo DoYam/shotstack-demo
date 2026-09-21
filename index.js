@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import axios from 'axios';
 
-// 환경 변수에서 API 키 로드 및 유효성 검증
+// Load and validate Shotstack API credentials from environment variables
 const SHOTSTACK_API_KEY = process.env.SHOTSTACK_API_KEY?.trim();
 
 if (!SHOTSTACK_API_KEY) {
@@ -10,7 +10,7 @@ if (!SHOTSTACK_API_KEY) {
   process.exit(1);
 }
 
-// 2명의 추가 개발자 프로필 (페르소나, 데이터, 컬러 테마 완전 차별화)
+// Mock profiles: Differentiated developer personas, activity metrics, and syntax themes
 const developers = [
   {
     id: 'alex',
@@ -66,6 +66,7 @@ const developers = [
   }
 ];
 
+// Helper: Render Powerlevel10k styled CLI prompt
 function p10kPrompt(user, path, cmd, cursor = false, segColor = '#007acc') {
   return `
     <div class="prompt-line">
@@ -79,6 +80,7 @@ function p10kPrompt(user, path, cmd, cursor = false, segColor = '#007acc') {
   `;
 }
 
+// Build dynamic Shotstack Edit API payload with customized HTML/CSS tracks
 function buildUserPayload(dev) {
   const t = dev.theme;
 
@@ -116,7 +118,7 @@ function buildUserPayload(dev) {
       tracks: [
         {
           clips: [
-            // Scene 1: Init (0.0~7.0s)
+            // Scene 1: Initializing Telemetry (0.0s - 7.0s)
             {
               asset: {
                 type: 'html',
@@ -154,7 +156,7 @@ function buildUserPayload(dev) {
               transition: { out: 'fadeFast' }
             },
 
-            // Scene 2: Throughput (7.0~15.0s)
+            // Scene 2: Throughput Metrics (7.0s - 15.0s)
             {
               asset: {
                 type: 'html',
@@ -197,7 +199,7 @@ function buildUserPayload(dev) {
               transition: { out: 'fadeFast' }
             },
 
-            // Scene 3: Schedule / Daemon (15.0~23.0s)
+            // Scene 3: Daemon / Execution Schedule (15.0s - 23.0s)
             {
               asset: {
                 type: 'html',
@@ -240,7 +242,7 @@ function buildUserPayload(dev) {
               transition: { out: 'fadeFast' }
             },
 
-            // Scene 4: Stack Table (23.0~31.5s)
+            // Scene 4: Stack & Language Breakdown (23.0s - 31.5s)
             {
               asset: {
                 type: 'html',
@@ -287,7 +289,7 @@ function buildUserPayload(dev) {
               transition: { out: 'fadeFast' }
             },
 
-            // Scene 5: AI Chat Finale (31.5~40.0s)
+            // Scene 5: AI Recap Agent Finale (31.5s - 40.0s)
             {
               asset: {
                 type: 'html',
@@ -368,12 +370,16 @@ function buildUserPayload(dev) {
   };
 }
 
+// Dispatch video render and poll until asset is hosted
 async function renderDeveloper(dev) {
   const payload = buildUserPayload(dev);
   console.log(`[HTTP] Sending POST /render for ${dev.username}...`);
 
   const res = await axios.post('https://api.shotstack.io/edit/stage/render', payload, {
-    headers: { 'Content-Type': 'application/json', 'x-api-key': SHOTSTACK_API_KEY }
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': SHOTSTACK_API_KEY
+    }
   });
 
   const renderId = res.data.response.id;
@@ -397,6 +403,7 @@ async function renderDeveloper(dev) {
   }
 }
 
+// Execute parallel batch rendering pipeline
 async function runMultiRender() {
   console.log(`\n======================================================`);
   console.log(`[BATCH] Starting Concurrent Renders for 2 Developers`);
@@ -409,7 +416,7 @@ async function runMultiRender() {
       console.log(`• ${r.username}: ${r.url}`);
     });
   } catch (err) {
-    console.error('Batch Render Error:', err.message);
+    console.error('❌ Batch Render Error:', err.message);
   }
 }
 
