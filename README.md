@@ -1,32 +1,28 @@
 # ⚡ 2026 Git Wrapped: Automated Video Pipeline with Shotstack
 
-Automated personal developer recap video pipeline inspired by Spotify Wrapped. Instead of maintaining complex FFmpeg CLI scripts and GPU rendering clusters, this workflow renders personalized dynamic 9:16 short-form videos via the Shotstack Cloud Video API and Node.js concurrent batch calls.
+Automated personal developer recap video pipeline inspired by Spotify Wrapped[cite: 3]. It maps developer data into dynamic HTML/CSS terminal templates and triggers distributed cloud video rendering via the Shotstack Edit API[cite: 3].
 
 ---
 
-## 💡 The Problem vs Solution
+## 🛠 About Shotstack
 
-- **Traditional Workflow:** Setting up raw FFmpeg commands, provisioning EC2 GPU instances, handling video encoding concurrency, and tuning memory limits per container.
-- **API-First Architecture:** Injecting developer stats directly into dynamic HTML/CSS templates and triggering distributed cloud rendering with a single REST API call.
+[Shotstack](https://shotstack.io) provides cloud-based video editing and rendering infrastructure accessible through REST APIs and SDKs[cite: 3].
 
----
-
-## 🛠 Powered by Shotstack
-
-[Shotstack](https://shotstack.io) is a cloud-native video editing and rendering infrastructure built for developers. It abstracts the heavy lifting of media processing—video stitching, HTML/CSS canvas rendering, transitions, audio mixing, and AI video workflows—into scalable, language-agnostic REST APIs and SDKs.
-
-- **Developer Docs:** [docs.shotstack.io](https://shotstack.io/docs/guide/)
-- **Interactive Studio & SDKs:** [shotstack.io/docs/guide/studio-sdk/](https://shotstack.io/docs/guide/studio-sdk/)
-- **Community & Sandbox:** Grab a free sandbox API key directly at [shotstack.io](https://shotstack.io) (no credit card required) to prototype programmatic media pipelines instantly.
+- **What it does:** Automates video creation, editing, and rendering in the cloud using JSON/HTML templates without requiring local FFmpeg scripts or GPU server management[cite: 3].
+- **Key Capabilities:** Dynamic HTML/CSS-to-video rendering, asset mixing, audio overlay, and timeline sequencing[cite: 3].
+- **Docs & Resources:**
+  - Documentation: [shotstack.io/docs/guide/](https://shotstack.io/docs/guide/)[cite: 3]
+  - Studio SDK & Interactive Examples: [shotstack.io/docs/guide/studio-sdk/](https://shotstack.io/docs/guide/studio-sdk/)[cite: 3]
+  - Sandbox: Free developer API key available at [shotstack.io](https://shotstack.io) (no credit card required)[cite: 3].
 
 ---
 
-## ✨ Features
+## 💡 Key Architecture
 
-- **Persona & Dynamic Theming:** Automatically adapts terminal styling, Monokai/Dracula color palettes, badges, and stats per developer.
-- **Code-Driven Video Composition:** Uses HTML5/CSS3 keyframe layouts compiled directly into 1080x1920 MP4 assets.
-- **Parallel Batch Rendering:** Dispatches multiple video renders concurrently using `Promise.all` and polls for cloud completion status.
-- **Zero Server Overhead:** Serverless cloud scale with $0 ongoing infrastructure management.
+- **Input:** Developer statistics (commits, streak, language usage, LOC)[cite: 3].
+- **Template:** Dynamic HTML/CSS with JetBrains Mono, p10k-style terminal prompts, and customized themes (Monokai Pro, Dracula).
+- **Execution:** Dispatches concurrent batch render requests using Node.js and polls the render endpoint until MP4 generation completes[cite: 3].
+- **Output:** Individual 1080x1920 (9:16) MP4 video files hosted on cloud storage[cite: 3].
 
 ---
 
