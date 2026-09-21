@@ -1,28 +1,28 @@
 # ⚡ 2026 Git Wrapped: Automated Video Pipeline with Shotstack
 
-Automated personal developer recap video pipeline inspired by Spotify Wrapped[cite: 3]. It maps developer data into dynamic HTML/CSS terminal templates and triggers distributed cloud video rendering via the Shotstack Edit API[cite: 3].
+Automated personal developer recap video pipeline inspired by Spotify Wrapped. It maps developer data into dynamic HTML/CSS terminal templates and triggers distributed cloud video rendering via the Shotstack Edit API.
 
 ---
 
 ## 🛠 About Shotstack
 
-[Shotstack](https://shotstack.io) provides cloud-based video editing and rendering infrastructure accessible through REST APIs and SDKs[cite: 3].
+[Shotstack](https://shotstack.io) provides cloud-based video editing and rendering infrastructure accessible through REST APIs and SDKs.
 
-- **What it does:** Automates video creation, editing, and rendering in the cloud using JSON/HTML templates without requiring local FFmpeg scripts or GPU server management[cite: 3].
-- **Key Capabilities:** Dynamic HTML/CSS-to-video rendering, asset mixing, audio overlay, and timeline sequencing[cite: 3].
+- **What it does:** Automates video creation, editing, and rendering in the cloud using JSON/HTML templates without requiring local FFmpeg scripts or GPU server management.
+- **Key Capabilities:** Dynamic HTML/CSS-to-video rendering, asset mixing, audio overlay, and timeline sequencing.
 - **Docs & Resources:**
-  - Documentation: [shotstack.io/docs/guide/](https://shotstack.io/docs/guide/)[cite: 3]
-  - Studio SDK & Interactive Examples: [shotstack.io/docs/guide/studio-sdk/](https://shotstack.io/docs/guide/studio-sdk/)[cite: 3]
-  - Sandbox: Free developer API key available at [shotstack.io](https://shotstack.io) (no credit card required)[cite: 3].
+  - Documentation: [shotstack.io/docs/guide/](https://shotstack.io/docs/guide/)
+  - Studio SDK & Interactive Examples: [shotstack.io/docs/guide/studio-sdk/](https://shotstack.io/docs/guide/studio-sdk/)
+  - Sandbox: Free developer API key available at [shotstack.io](https://shotstack.io) (no credit card required).
 
 ---
 
 ## 💡 Key Architecture
 
-- **Input:** Developer statistics (commits, streak, language usage, LOC)[cite: 3].
+- **Input:** Developer statistics (commits, streak, language usage, LOC).
 - **Template:** Dynamic HTML/CSS with JetBrains Mono, p10k-style terminal prompts, and customized themes (Monokai Pro, Dracula).
-- **Execution:** Dispatches concurrent batch render requests using Node.js and polls the render endpoint until MP4 generation completes[cite: 3].
-- **Output:** Individual 1080x1920 (9:16) MP4 video files hosted on cloud storage[cite: 3].
+- **Execution:** Dispatches concurrent batch render requests using Node.js and polls the render endpoint until MP4 generation completes.
+- **Output:** Individual 1080x1920 (9:16) MP4 video files hosted on cloud storage.
 
 ---
 
