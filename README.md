@@ -11,6 +11,16 @@ Automated personal developer recap video pipeline inspired by Spotify Wrapped. I
 
 ---
 
+## 🛠 Powered by Shotstack
+
+[Shotstack](https://shotstack.io) is a cloud-native video editing and rendering infrastructure built for developers. It abstracts the heavy lifting of media processing—video stitching, HTML/CSS canvas rendering, transitions, audio mixing, and AI video workflows—into scalable, language-agnostic REST APIs and SDKs.
+
+- **Developer Docs:** [docs.shotstack.io](https://shotstack.io/docs/guide/)
+- **Interactive Studio & SDKs:** [shotstack.io/docs/guide/studio-sdk/](https://shotstack.io/docs/guide/studio-sdk/)
+- **Community & Sandbox:** Grab a free sandbox API key directly at [shotstack.io](https://shotstack.io) (no credit card required) to prototype programmatic media pipelines instantly.
+
+---
+
 ## ✨ Features
 
 - **Persona & Dynamic Theming:** Automatically adapts terminal styling, Monokai/Dracula color palettes, badges, and stats per developer.
@@ -25,6 +35,6 @@ Automated personal developer recap video pipeline inspired by Spotify Wrapped. I
 ### 1. Clone & Install Dependencies
 
 ```bash
-git clone https://github.com/DoYam/shotstack-demo
-cd <REPO_NAME>
+git clone [https://github.com/DoYam/shotstack-demo.git](https://github.com/DoYam/shotstack-demo.git)
+cd shotstack-demo
 npm install
